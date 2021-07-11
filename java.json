@@ -1,21 +1,4 @@
 {
-	"Print to console": {
-		"prefix": "log",
-		"body": [
-		"console.log('$1');",
-		"$2"
-		],
-		"description": "Log output to console"
-	},
-	"Public method": {
-		"prefix": "public_method",
-		"body": [
-			"public ${1:void} ${2:name}(${3}) {",
-			"\t$0",
-			"}"
-		],
-		"description": "public method"
-	},
 	"JUnit Test Method": {
 		"prefix": "test_method",
 		"body": [
@@ -23,8 +6,27 @@
 			"public void ${1:name}() {",
 			"\t$0",
 			"}"
+		]
+	},
+	"newMockedObject": {
+		"prefix": "new_mock",
+		"body": [
+			"${1:Object} ${2:mock} = Mockito.mock(${1:Object}.class);"
 		],
-		"description": "public method"
+		"description": "Create new Object"
+	},
+	"Mockito Verify": {
+		"prefix": "mockito_verify",
+		"body": [
+			"Mockito.verify(${1:mock}, VerificationModeFactory.times(${2:1}))",
+			"\t.$3($0);",
+		]
+	},
+	"Mockito Mock Method": {
+		"prefix": "mockito_mock_method",
+		"body": [
+			"Mockito.doReturn($1).when(${2:mock}).$3($0);"
+		]
 	},
 	"JUnit Test Class": {
 		"prefix": "test_class",
@@ -43,7 +45,105 @@
 			"\t\t$0",
 			"\t}",
 			"}"
-		],
-		"description": "public method"
+		]
+	},
+	"Inner Class": {
+		"prefix": "inner_class",
+		"body": [
+			"public class ${1:name} {",
+			"\t$0",
+			"}"
+		]
+	},
+	"Inner Static Class": {
+		"prefix": "inner_static_class",
+		"body": [
+			"public static class ${1:name} {",
+			"\t$0",
+			"}"
+		]
+	},
+	"Getter Method": {
+		"prefix": "getter",
+		"body": [
+			"public ${1:String} get${2:Name}() {",
+			"\treturn ${3:name};",
+			"}"
+		]
+	},
+	"Setter Method": {
+		"prefix": "setter",
+		"body": [
+			"public void set${1:Name}(${2:String} ${3:name}) {",
+			"\tthis.${3:name} = ${3:name};",
+			"}"
+		]
+	},
+	"Getter/Setter Method": {
+		"prefix": "getter_setter",
+		"body": [
+			"public ${1:String} get${2:Name}() {",
+			"\treturn ${3:name};",
+			"}"
+		]
+	},
+	"Builder": {
+		"prefix": "builder",
+		"body": [
+			"public static class ${1:}Builder {",
+			"\tprivate ${3:Integer} $4;",
+			"\tprivate ${5:Integer} $6;",
+			"\tprivate ${7:Integer} $8;",
+			"\tprivate ${9:Integer} $10;",
+			"\tprivate ${11:Integer} $12;",
+			"\tprivate ${13:Integer} $14;",
+			"\tprivate ${15:Integer} $16;",
+			"\tprivate ${17:Integer} $18;",
+			"",
+			"\tpublic $1Builder with${4/(.{1})/${1:/upcase}/}($3 $4) {",
+			"\t\tthis.$4 = $4;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${6/(.{1})/${1:/upcase}/}($5 $6) {",
+			"\t\tthis.$6 = $6;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${8/(.{1})/${1:/upcase}/}($7 $8) {",
+			"\t\tthis.$8 = $8;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${10/(.{1})/${1:/upcase}/}($9 $10) {",
+			"\t\tthis.$10 = $10;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${12/(.{1})/${1:/upcase}/}($11 $12) {",
+			"\t\tthis.$12 = $12;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${14/(.{1})/${1:/upcase}/}($13 $14) {",
+			"\t\tthis.$14 = $14;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${16/(.{1})/${1:/upcase}/}($15 $16) {",
+			"\t\tthis.$16 = $16;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $1Builder with${18/(.{1})/${1:/upcase}/}($17 $18) {",
+			"\t\tthis.$18 = $18;",
+			"\t\treturn this;",
+			"\t}",
+			"",
+			"\tpublic $2 build() {",
+			"\t\treturn new $2();",
+			"\t}",
+			"}"
+		]
 	}
 }

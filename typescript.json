@@ -1,0 +1,58 @@
+{
+  "Create async redux types": {
+    "prefix": "redux_types",
+  	"body": [
+   		"$1_REQUEST: \"$2/$1_REQUEST\",",
+   		"$1_SUCCESS: \"$2/$1_SUCCESS\",",
+      "$1_ERROR: \"$2/$1_ERROR\","
+   	]
+  },
+  "Create async redux actions types": {
+    "prefix": "redux_actions_types",
+  	"body": [
+   		"export interface $1RequestAction extends Action {",
+   		"\t$3",
+      "}",
+      "",
+      "const instanceOf$1RequestAction = (object: Action): object is $1RequestAction =>",
+      "\tobject.type === $2Types.${1/(.*)/${1:/upcase}/}_REQUEST;",
+      "",
+      "export interface $1SuccessAction extends Action {",
+   		"\t$4",
+      "}",
+      "",
+      "const instanceOf$1SuccessAction = (object: Action): object is $1SuccessAction =>",
+      "\tobject.type === $2Types.${1/(.*)/${1:/upcase}/}_SUCCESS;",
+      "",
+      "export interface $1ErrorAction extends Action {",
+   		"\terror: Error$5",
+      "}",
+      "",
+      "const instanceOf$1ErrorAction = (object: Action): object is $1ErrorAction =>",
+      "\tobject.type === $2Types.${1/(.*)/${1:/upcase}/}_ERROR;"
+   	]
+  },
+  "Create async redux actions": {
+    "prefix": "redux_actions",
+  	"body": [
+   		"$1Request: ($3: $4): ${1/(.{1})/${1:/upcase}/}RequestAction => ({ type: $2Types.${1/(.*)/${1:/upcase}/}_REQUEST, $3 }),",
+   		"$1Success: ($5: $6): ${1/(.{1})/${1:/upcase}/}SuccessAction => ({ type: $2Types.${1/(.*)/${1:/upcase}/}_SUCCESS, $5 }),",
+      "$1Error: (error: Error): ${1/(.{1})/${1:/upcase}/}ErrorAction => ({ type: $2Types.${1/(.*)/${1:/upcase}/}_ERROR, error }),"
+   	]
+  },
+  "Create redux reducer condition": {
+    "prefix": "redux_reducer_condition",
+  	"body": [
+   		"if(instanceOf$1Action(action)) {",
+   		"\treturn state",
+      "\t\t$0",
+      "}"
+   	]
+  },
+  "Console log": {
+    "prefix": "log",
+  	"body": [
+   		"console.log($0)"
+   	]
+  }
+}
