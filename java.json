@@ -1,0 +1,49 @@
+{
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+		"console.log('$1');",
+		"$2"
+		],
+		"description": "Log output to console"
+	},
+	"Public method": {
+		"prefix": "public_method",
+		"body": [
+			"public ${1:void} ${2:name}(${3}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "public method"
+	},
+	"JUnit Test Method": {
+		"prefix": "test_method",
+		"body": [
+			"@Test",
+			"public void ${1:name}() {",
+			"\t$0",
+			"}"
+		],
+		"description": "public method"
+	},
+	"JUnit Test Class": {
+		"prefix": "test_class",
+		"body": [
+			"public class ${1:name} {",
+			"\t@Before",
+			"\tpublic void setUp() {",
+			"\t\t",
+			"\t}",
+			"\t@After",
+			"\tpublic void tearDown() {",
+			"\t\t",
+			"\t}",
+			"\t@Test",
+			"\tpublic void ${2:name}() {",
+			"\t\t$0",
+			"\t}",
+			"}"
+		],
+		"description": "public method"
+	}
+}

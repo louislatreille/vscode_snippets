@@ -1,0 +1,9 @@
+{
+	"Translated Text": {
+		"prefix": "translate_text",
+		"body": [
+			"t('$0')"
+		],
+		"description": "Write text with translation"
+	}
+}
