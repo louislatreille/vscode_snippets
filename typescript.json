@@ -1,7 +1,7 @@
 {
   "Create redux selector": {
     "prefix": "redux_selector",
-    "body": ["select${1/(.{1})/${1:/upcase}/}: (state) => topSelect(state).$1,"]
+    "body": ["\tselect$1: (state) => topSelect(state).${1/(.{1})/${1:/downcase}/},"]
   },
   "Create redux reducer": {
     "prefix": "redux_reducer",
@@ -17,6 +17,22 @@
       "\t\t$0",
       "\t},",
       "});"
+    ]
+  },
+  "Create describe test block": {
+    "prefix": "describe",
+    "body": [
+      "describe('GIVEN $1', () => {",
+      "\t$0",
+      "});",
+    ]
+  },
+  "Create it test block": {
+    "prefix": "it",
+    "body": [
+      "it('$1', () => {",
+      "\t$0",
+      "});",
     ]
   },
   "Console log": {
